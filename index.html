@@ -8,6 +8,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    
 
     <!-- CSS here -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -24,6 +25,38 @@
     <link rel="stylesheet" href="assets/css/slick.css">
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <script src="./assets/js/ethers-5.2.umd.min.js" type="application/javascript"></script>
+    <script type="application/javascript">
+        const tokenABI = '[{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"spender","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"minTokensBeforeSwap","type":"uint256"}],"name":"MinTokensBeforeSwapUpdated","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"bool","name":"enabled","type":"bool"}],"name":"SetSwapEnabled","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"tokensSwapped","type":"uint256"},{"indexed":false,"internalType":"uint256","name":"ethReceived","type":"uint256"},{"indexed":false,"internalType":"uint256","name":"tokensIntoLiqudity","type":"uint256"}],"name":"SwapAndLiquify","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"bool","name":"enabled","type":"bool"}],"name":"SwapAndLiquifyEnabledUpdated","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"from","type":"address"},{"indexed":true,"internalType":"address","name":"to","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"inputs":[],"name":"BPDisabledForever","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"BuybackandBurnWallet","outputs":[{"internalType":"address payable","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"TransferBurnFee","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_buyBuybackandBurn","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_buyLiquidityFee","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_buyMarketingDevCharityFee","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_buyTaxFee","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"_isBlacklisted","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_maxTxAmount","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_sellBuybackandBurn","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_sellLiquidityFee","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_sellMarketingDevCharityFee","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_sellTaxFee","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"owner","type":"address"},{"internalType":"address","name":"spender","type":"address"}],"name":"allowance","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"approve","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"},{"internalType":"bool","name":"value","type":"bool"}],"name":"blacklistAddress","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"bpEnabled","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"decimals","outputs":[{"internalType":"uint8","name":"","type":"uint8"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"subtractedValue","type":"uint256"}],"name":"decreaseAllowance","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"tAmount","type":"uint256"}],"name":"deliver","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"excludeFromFee","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"excludeFromReward","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"geUnlockTime","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"includeInFee","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"includeInReward","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"addedValue","type":"uint256"}],"name":"increaseAllowance","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"isExcludedFromFee","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"isExcludedFromReward","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"time","type":"uint256"}],"name":"lock","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"marketingWallet","outputs":[{"internalType":"address payable","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"maxWalletToken","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"numTokensSellToAddToLiquidity","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"tAmount","type":"uint256"},{"internalType":"bool","name":"deductTransferFee","type":"bool"}],"name":"reflectionFromToken","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"taxFee","type":"uint256"},{"internalType":"uint256","name":"MarketingDevCharityFee","type":"uint256"},{"internalType":"uint256","name":"liquidityFee","type":"uint256"},{"internalType":"uint256","name":"BuybackandBurn","type":"uint256"}],"name":"setBuyFeePercent","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address payable","name":"newWallet","type":"address"}],"name":"setBuybackandBurnWallet","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"maxTxAmount","type":"uint256"}],"name":"setMaxTxAmount","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_maxToken","type":"uint256"}],"name":"setMaxWalletTokend","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"newAmt","type":"uint256"}],"name":"setNumTokensSellToAddToLiquidity","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"newRouter","type":"address"}],"name":"setRouterAddress","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"taxFee","type":"uint256"},{"internalType":"uint256","name":"MarketingDevCharityFee","type":"uint256"},{"internalType":"uint256","name":"liquidityFee","type":"uint256"},{"internalType":"uint256","name":"BuybackandBurn","type":"uint256"}],"name":"setSellFeePercent","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bool","name":"_enabled","type":"bool"}],"name":"setSwapAndLiquifyEnabled","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bool","name":"_enabled","type":"bool"}],"name":"setSwapEnabled","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"swapAndLiquifyEnabled","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"swapEnabled","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"rAmount","type":"uint256"}],"name":"tokenFromReflection","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalFees","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalSupply","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"recipient","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"transfer","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"sender","type":"address"},{"internalType":"address","name":"recipient","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"transferFrom","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"uniswapV2Pair","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"uniswapV2Router","outputs":[{"internalType":"contract IUniswapV2Router02","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"unlock","outputs":[],"stateMutability":"nonpayable","type":"function"},{"stateMutability":"payable","type":"receive"}]';
+        const tokenAddress = "0x443C996f814A5b699bC919FEBBE51e6b58353eab";
+        async function connect() {
+            const provider = new ethers.providers.JsonRpcProvider('https://rinkeby.infura.io/v3/d68b2bf8b2e2457fb37c73aef267f910');
+            const contract = new ethers.Contract(tokenAddress, tokenABI, provider);
+            const tokenName = await contract.name();
+            const tokenSymbol = await contract.symbol();
+            const tokenDecimals = await contract.decimals();
+            const totalSupply = await contract.totalSupply();
+            const totalBurn = await contract.balanceOf('0x0000000000000000000000000000000000000000');
+            const sellTaxFee = await contract._sellTaxFee();
+            const buyTaxFee = await contract._buyTaxFee();
+            const buyLiquidityFee = await contract._buyLiquidityFee();
+            const sellLiquidityFee = await contract._sellLiquidityFee();
+
+            document.querySelector('#tokenName').innerHTML = tokenName;
+            document.querySelector('#tokenSymbol').innerHTML = tokenSymbol;
+            document.querySelector('#totalSupply').innerHTML = ethers.utils.formatUnits(totalSupply.toString(), tokenDecimals.toString());
+            document.querySelector('#tokenDecimals').innerHTML = tokenDecimals.toString();
+            document.querySelector('#totalBurn').innerHTML = totalBurn.toString();
+
+            document.querySelector('#sellTaxFee').innerHTML = ethers.utils.formatUnits(sellTaxFee.toString(), tokenDecimals.toString()) + ' TRT';
+            document.querySelector('#buyTaxFee').innerHTML = ethers.utils.formatUnits(buyTaxFee.toString(), tokenDecimals.toString()) + ' TRT';
+            document.querySelector('#buyLiquidityFee').innerHTML = ethers.utils.formatUnits(buyLiquidityFee.toString(), tokenDecimals.toString()) + ' TRT';
+            document.querySelector('#sellLiquidityFee').innerHTML = ethers.utils.formatUnits(sellLiquidityFee.toString(), tokenDecimals.toString()) + ' TRT';
+            console.log(tokenName);
+        }
+        
+    </script>
+
 
     <style>
         .custom-shape-divider-top-1653698161 {
@@ -204,22 +237,95 @@
             </div>
         </div>
         <!-- Slider Area End -->
-        <!-- Domain-search start -->
-        <!-- <div class="domain-search-area section-bg1">
+        <div class="domain-search-area section-bg1 pt-5 pb-5">
             <div class="container">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="text-center">
-                            <h2 style="font-size: 44px;">About Trust Token</h2>
-                        </div>
-                        <p class="text-center"> Designed to maximize passive income and offer unrivaled short- and long-term benefits to
-                            holders, Truest Token is revolutionizing the cryptocurrency space.
-                        </p>
+                <div class="row mb-5">
+                    <div class="col-12 text-center">
+                        <h2>Token Details</h2>
                     </div>
-
                 </div>
-            </div>
-        </div> -->
+                <div class="row p-4">
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="card shadow text-center">
+                          <!-- <div class="position-relative rounded-top progress-wrapper" data-color="#fdb157">
+                            <div class="wave" data-progress="90%"></div>
+                          </div> -->
+                          <div class="card-footer bg-white">
+                            <h4 class="card-title">Token Name: <span id="tokenName"></span></h4>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="card shadow text-center">
+                          <!-- <div class="position-relative rounded-top progress-wrapper" data-color="#fdb157">
+                            <div class="wave" data-progress="90%"></div>
+                          </div> -->
+                          <div class="card-footer bg-white">
+                            <h4 class="card-title">Token Symbol: <span id="tokenSymbol"></span></h4>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                     <div class="card shadow text-center">
+                       <!-- <div class="position-relative rounded-top progress-wrapper" data-color="#fdb157">
+                         <div class="wave" data-progress="90%"></div>
+                       </div> -->
+                       <div class="card-footer bg-white">
+                         <h4 class="card-title">Total Supply: <span id="totalSupply">0.0</span></h4>
+                       </div>
+                     </div>
+                   </div>
+                   <div class="col-lg-4 col-sm-6 mb-4">
+                     <div class="card shadow text-center">
+                       <!-- <div class="position-relative rounded-top progress-wrapper" data-color="#fdb157">
+                         <div class="wave" data-progress="90%"></div>
+                       </div> -->
+                       <div class="card-footer bg-white">
+                         <h4 class="card-title">Token Decimals: <span id="tokenDecimals">0</span></h4>
+                       </div>
+                     </div>
+                   </div>
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="card shadow text-center">
+                      <!-- <div class="position-relative rounded-top progress-wrapper" data-color="#fdb157">
+                        <div class="wave" data-progress="90%"></div>
+                      </div> -->
+                      <div class="card-footer bg-white">
+                        <h4 class="card-title">Total Burn: <span id="totalBurn">0.0</span></h4>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="card shadow text-center">
+                      <div class="card-footer bg-white">
+                        <h4 class="card-title">Sell Tax Fee: <span id="sellTaxFee">0.0</span></h4>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="card shadow text-center">
+                      <div class="card-footer bg-white">
+                        <h4 class="card-title">Buy Tax Fee: <span id="buyTaxFee">0.0</span></h4>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="card shadow text-center">
+                      <div class="card-footer bg-white">
+                        <h4 class="card-title">Buy Liquidity Fee: <span id="buyLiquidityFee">0.0</span></h4>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="card shadow text-center">
+                      <div class="card-footer bg-white">
+                        <h4 class="card-title">Sell Liquidity Fee: <span id="sellLiquidityFee">0.0</span></h4>
+                      </div>
+                    </div>
+                </div>
+             </div>
+         </div>
+     </div>
         <div class="about-area1 section-padding40 position-relative">
             <div class="custom-shape-divider-top-1653698161">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
@@ -370,79 +476,36 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-8 col-lg-8">
                         <div class="section-tittle text-center mb-90">
-                            <h2>Choose plan which fit for you</h2>
+                            <h2>Whitepaper and Audit Reports</h2>
                             <p>Supercharge your Truest Token with detailed token analytics, marketing tools. </p>
                         </div>
                     </div>
                 </div>
-                <!-- <div class="row">
+                <div class="row justify-content-center">
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-10">
                         <div class="single-card text-center mb-30">
                             <div class="card-top">
-                                <img src="assets/img/icon/price1.svg" alt="">
-                                <h4>Shared Token</h4>
-                                <p>Starting at</p>
+                                <img src="assets/img/icon/report.svg" alt="">
+                                <h2 class="text-white mt-5">Whitepaper</h2>
                             </div>
-                            <div class="card-mid">
-                                <h4>$4.67 <span>/ month</span></h4>
-                            </div>
-                            <div class="card-bottom">
-                                <ul>
-                                    <li>2 TB of space</li>
-                                    <li>unlimited bandwidth</li>
-                                    <li>full backup systems</li>
-                                    <li>free domain</li>
-                                    <li>unlimited database</li>
-                                </ul>
-                                <a href="#" class="borders-btn">Get Started</a>
+                            <div class="card-bottom mt-5">
+                                <a href="#" class="borders-btn">Download</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-10">
                         <div class="single-card text-center mb-30">
                             <div class="card-top">
-                                <img src="assets/img/icon/price2.svg" alt="">
-                                <h4>Dedicated Token</h4>
-                                <p>Starting at</p>
+                                <img src="assets/img/icon/report.svg" alt="">
+                                <h2 class="mt-5 text-white">Audit Report</h2>
                             </div>
-                            <div class="card-mid">
-                                <h4>$4.67 <span>/ month</span></h4>
-                            </div>
-                            <div class="card-bottom">
-                                <ul>
-                                    <li>2 TB of space</li>
-                                    <li>unlimited bandwidth</li>
-                                    <li>full backup systems</li>
-                                    <li>free domain</li>
-                                    <li>unlimited database</li>
-                                </ul>
-                                <a href="#" class="borders-btn">Get Started</a>
+                            <div class="card-bottom mt-5">
+                                <a href="#" class="borders-btn">Download</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-10">
-                        <div class="single-card text-center mb-30">
-                            <div class="card-top">
-                                <img src="assets/img/icon/price3.svg" alt="">
-                                <h4>Cloud Token</h4>
-                                <p>Starting at</p>
-                            </div>
-                            <div class="card-mid">
-                                <h4>$4.67 <span>/ month</span></h4>
-                            </div>
-                            <div class="card-bottom">
-                                <ul>
-                                    <li>2 TB of space</li>
-                                    <li>unlimited bandwidth</li>
-                                    <li>full backup systems</li>
-                                    <li>free domain</li>
-                                    <li>unlimited database</li>
-                                </ul>
-                                <a href="#" class="borders-btn">Get Started</a>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+
+                </div>
             </div>
         </section>
         <!-- Pricing Card End -->
@@ -733,7 +796,9 @@
     </div>
 
     <!-- JS here -->
-
+    <script>
+        connect();
+    </script>
     <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
     <!-- Jquery, Popper, Bootstrap -->
     <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
