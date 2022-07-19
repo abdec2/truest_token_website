@@ -42,11 +42,11 @@
             const buyLiquidityFee = await contract._buyLiquidityFee();
             const sellLiquidityFee = await contract._sellLiquidityFee();
 
-            document.querySelector('#tokenName').innerHTML = tokenName;
+            document.querySelector('#tokenName').innerHTML = "Truest Token"; //tokenName;
             document.querySelector('#tokenSymbol').innerHTML = tokenSymbol;
-            document.querySelector('#totalSupply').innerHTML = ethers.utils.formatUnits(totalSupply.toString(), tokenDecimals.toString());
+            document.querySelector('#totalSupply').innerHTML = "2 billions"; // ethers.utils.formatUnits(totalSupply.toString(), tokenDecimals.toString());
             document.querySelector('#tokenDecimals').innerHTML = tokenDecimals.toString();
-            document.querySelector('#totalBurn').innerHTML = totalBurn.toString();
+            document.querySelector('#totalBurn').innerHTML = "800, 000, 000"; // totalBurn.toString();
 
             document.querySelector('#sellTaxFee').innerHTML = ethers.utils.formatUnits(sellTaxFee.toString(), tokenDecimals.toString()) + ' TRT';
             document.querySelector('#buyTaxFee').innerHTML = ethers.utils.formatUnits(buyTaxFee.toString(), tokenDecimals.toString()) + ' TRT';
